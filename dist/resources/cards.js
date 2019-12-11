@@ -27,3 +27,24 @@ var Pendiente = exports.Pendiente = {
     "card[exp_month]": "12",
     "card[cvc]": "123"
 };
+
+var AceptadaNoCvc = exports.AceptadaNoCvc = {
+    "card[number]": "4575623182290326",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+};
+var FondosInsuficientesNoCvc = exports.FondosInsuficientesNoCvc = {
+    "card[number]": "4151611527583283",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+};
+var FallidaNoCvc = exports.FallidaNoCvc = {
+    "card[number]": "5170394490379427",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+};
+var PendienteNoCvc = exports.PendienteNoCvc = {
+    "card[number]": "373118856457642",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+};

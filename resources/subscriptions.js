@@ -27,6 +27,6 @@ export const PaySubscription = async (subscriptionInfo) => {
       const result = await payment
       console.info(result)
   } catch (error) {
-      console.error(`Error: ${err}`);
+      console.error(`Error: ${error}`);
   }
 }

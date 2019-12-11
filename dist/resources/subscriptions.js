@@ -32,6 +32,6 @@ var PaySubscription = exports.PaySubscription = async function PaySubscription(s
         var result = await payment;
         console.info(result);
     } catch (error) {
-        console.error('Error: ' + err);
+        console.error('Error: ' + error);
     }
 };

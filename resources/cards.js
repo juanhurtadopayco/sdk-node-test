@@ -23,4 +23,25 @@ export const Pendiente = {
     "card[cvc]": "123"
 }
 
+export const AceptadaNoCvc = {
+    "card[number]": "4575623182290326",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+}
+export const FondosInsuficientesNoCvc = {
+    "card[number]": "4151611527583283",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+}
+export const FallidaNoCvc = {
+    "card[number]": "5170394490379427",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+}
+export const PendienteNoCvc = {
+    "card[number]": "373118856457642",
+    "card[exp_year]": "2019",
+    "card[exp_month]": "12"
+}
+
 
