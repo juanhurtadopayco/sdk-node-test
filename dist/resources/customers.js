@@ -1,27 +1,35 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.GetCustomers = exports.CreateCustomer = undefined;
 
-var _api = require('./api');
+var _api = require("./api");
 
 var CreateCustomer = exports.CreateCustomer = async function CreateCustomer(customer_info) {
-    try {
-        var customer = _api.Epayco.customers.create(customer_info);
-        var result = await customer;
-        return result;
-    } catch (error) {
-        console.error('Error: ' + err);
-    }
+  try {
+    var epayco = await (0, _api.Epayco)();
+    var customer = epayco.customers.create(customer_info);
+    var result = await customer;
+    return result;
+  } catch (error) {
+    console.error("Error: " + err);
+  }
 }; //CUSTOMER
-var GetCustomers = exports.GetCustomers = async function GetCustomers() {
-    try {
-        var customers = _api.Epayco.customers.list();
-        var result = await customers;
-        console.info(result);
-    } catch (error) {
-        console.error('Error: ' + err);
-    }
+var GetCustomers = exports.GetCustomers = async function GetCustomers(id) {
+  try {
+
+    _api.Epayco.customers.get(id).then(function (customer) {
+      console.log(customer.data.cards);
+    }).catch(function (err) {
+      console.log("err: " + err);
+    });
+
+    /* const customers = Epayco.customers.list()
+    const result = await customers
+    console.info(result) */
+  } catch (error) {
+    console.error("Error: " + error);
+  }
 };

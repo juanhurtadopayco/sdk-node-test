@@ -7,18 +7,20 @@ exports.PaySubscription = exports.GetSubscriptions = exports.CreateSubscription 
 
 var _api = require('./api');
 
-var CreateSubscription = exports.CreateSubscription = async function CreateSubscription(subscription_info) {
+var CreateSubscription = exports.CreateSubscription = async function CreateSubscription(urlApi, subscription_info) {
     try {
-        var created_subscription = _api.Epayco.subscriptions.create(subscription_info);
+        var epayco = await (0, _api.Epayco)(urlApi);
+        var created_subscription = epayco.subscriptions.create(subscription_info);
         var result = await created_subscription;
         return result;
     } catch (error) {
-        console.error('Error: ' + err);
+        console.error('Error: ' + error);
     }
 };
-var GetSubscriptions = exports.GetSubscriptions = async function GetSubscriptions() {
+var GetSubscriptions = exports.GetSubscriptions = async function GetSubscriptions(urlApi) {
     try {
-        var subscriptions = _api.Epayco.subscriptions.list();
+        var epayco = await (0, _api.Epayco)(urlApi);
+        var subscriptions = epayco.subscriptions.list();
         var result = await subscriptions;
         console.info(result);
     } catch (error) {
@@ -26,9 +28,11 @@ var GetSubscriptions = exports.GetSubscriptions = async function GetSubscription
     }
 };
 
-var PaySubscription = exports.PaySubscription = async function PaySubscription(subscriptionInfo) {
+var PaySubscription = exports.PaySubscription = async function PaySubscription(urlApi, subscriptionInfo) {
     try {
-        var payment = _api.Epayco.subscriptions.charge(subscriptionInfo);
+        var epayco = await (0, _api.Epayco)(urlApi);
+        var payment = epayco.subscriptions.charge(subscriptionInfo);
+
         var result = await payment;
         console.info(result);
     } catch (error) {

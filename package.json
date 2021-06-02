@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "start": "npm run build && node dist/index.js"
+    "dev-pse-create": "npm run build && node dist/pse.js create",
+    "dev-pse-info": "npm run build && node dist/pse.js info",
+    "pre": "npm run build && node dist/index.js pre",
+    "prod": "npm run build && node dist/index.js prod"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
     "rimraf": "^3.0.0"
   },
   "dependencies": {
-    "epayco-node": "0.0.6"
+    "enquirer": "^2.3.4",
+    "epayco-node": "0.0.7"
   }
 }
